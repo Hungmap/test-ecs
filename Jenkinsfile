@@ -2,7 +2,7 @@ pipeline {
     agent any
     options {
         skipStagesAfterUnstable()
-        IMAGE_REPO_NAME="project-network"
+        MAGE_REPO_NAME="project-network"
         IMAGE_TAG="latest"
         REPOSITORY_URI = "723865550634.dkr.ecr.ap-northeast-1.amazonaws.com/project-network"
     }
