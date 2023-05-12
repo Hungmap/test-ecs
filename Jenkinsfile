@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry('https://723865550634.dkr.ecr.ap-northeast-1.amazonaws.com/', 'ecr:ap-northeast-1:AWS') {
-                        app.tag('project-network:latest 723865550634.dkr.ecr.ap-northeast-1.amazonaws.com/project-network:latest')
+                        app.tag()
                         app.push()
                     }
                 }
