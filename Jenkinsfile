@@ -15,7 +15,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 script{
-                 app = docker.build("project-network")
+                app = docker.build("project-network")
                 }
             }
         }
@@ -28,8 +28,7 @@ pipeline {
             steps {
                 script{
                     docker.withRegistry('https://723865550634.dkr.ecr.ap-northeast-1.amazonaws.com', 'ecr:ap-northeast-1:aws-credentials') {
-                    app.push("${env.BUILD_NUMBER}")
-                    app.push("latest")
+                        app.push()
                     }
                 }
             }
