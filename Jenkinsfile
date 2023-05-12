@@ -29,7 +29,7 @@ pipeline {
                 script{
                     docker.withRegistry('https://723865550634.dkr.ecr.ap-northeast-1.amazonaws.com/', 'ecr:ap-northeast-1:AWS') {
                         app.tag('v1')
-                        app.push()
+                        app.push('v1')
                     }
                 }
             }
