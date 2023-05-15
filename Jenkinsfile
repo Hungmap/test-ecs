@@ -3,6 +3,10 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
+    environment {
+        cluster = "project-network-ecs-demo"
+        service = "java-app"
+    }
     stages {
          stage('Clone repository') { 
             steps { 
@@ -30,6 +34,18 @@ pipeline {
                     docker.withRegistry('https://723865550634.dkr.ecr.ap-northeast-1.amazonaws.com/', 'ecr:ap-northeast-1:AWS') {
                         app.tag('v2')
                         app.push('v2')
+                    }
+                }
+            }
+        }
+        stage('Deloy ECS'){
+            steps{
+                agent {
+                    ECS {
+                        withAWS(credentials: 'AWS', region: 'ap-northeast-1 ' ){
+                            sh 'aws ecs update-service --cluster ${cluster} --service ${service} --force-new-deployment'
+                        }
+                      
                     }
                 }
             }
