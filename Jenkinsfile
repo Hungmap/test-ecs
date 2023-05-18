@@ -42,8 +42,7 @@ pipeline {
             steps{
                 agent {
                     ECS {
-                        withAWS(credentials: 'AWS', region: 'ap-northeast-1 ' ){
-                        taskDefiniton = task.json
+                        inheritFrom 'task.json '
                             
                         }
                       
