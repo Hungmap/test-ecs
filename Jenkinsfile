@@ -3,7 +3,7 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
-    environment {
+    environment { 
         cluster = "project-network-ecs-demo"
         service = "java-app"
     }
@@ -43,7 +43,8 @@ pipeline {
                 agent {
                     ECS {
                         withAWS(credentials: 'AWS', region: 'ap-northeast-1 ' ){
-                            sh 'aws ecs update-service --cluster ${cluster} --service ${service} --force-new-deployment'
+                        taskDefiniton = task.json
+                            
                         }
                       
                     }
