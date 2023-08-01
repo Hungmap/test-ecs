@@ -42,7 +42,9 @@ pipeline {
             steps{
                 agent {
                     ECS {
+                        withAws
                         inheritFrom 'task.json '
+                        
                             
                         }
                       
