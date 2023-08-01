@@ -1,6 +1,6 @@
 variable "vpc_cidr_block" {
   type    = string
-  default = "172.16.0.0/16"
+  default = "172.17.0.0/16"
 }
 variable "Public_subnet" {
   type = list(string)
