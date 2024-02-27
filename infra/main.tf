@@ -9,7 +9,7 @@ terraform {
 
 }
 provider "aws" {
-  region  = "ap-northeast-1"
+  region  = "ap-southeast-1"
   version = "4.55"
 }
 module "vpc" {
@@ -29,16 +29,4 @@ module "ec2" {
   az             = ["us-east-1a", "us-east-1b"]
 
 
-}
-module "ALB" {
-  source             = "./ALB"
-  vpc_id             = module.vpc.vpc_id
-  security_group     = module.vpc.sg_alb
-  subnets            = module.vpc.subnet_public
-  instance_public_id = module.ec2.instance_public_id # test abc xyz
-}
-module "RDS" {
-  source         = "./RDS"
-  subnet         = module.vpc.subnet_private
-  security_group = module.vpc.sg_private
 }
