@@ -1,16 +1,15 @@
 terraform {
-  cloud {
-    organization = "hungnt1"
-    workspaces {
-      name = "infra"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
     }
   }
-
-
 }
+
+# Configure the AWS Provider
 provider "aws" {
-  region  = "ap-southeast-1"
-  version = "4.55"
+  region = "ap-southeat-1"
 }
 module "vpc" {
   source         = "./vpc"
