@@ -8,7 +8,7 @@ app.get('/', (req, res) => {
     const hostname = os.hostname();
     console.log('Hello NodeJS from Project-network')
     res.json({
-        serviceName : 'esc-demo',
+        serviceName : 'esc-demo12',
         contact: 'nguyenthanhhung021199@gmail.com',
         Cientip : clienip,
         ALB : elbip,
