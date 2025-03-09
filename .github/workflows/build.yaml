@@ -8,5 +8,9 @@ jobs:
         steps:
             - name: Checkout repository
               uses: actions/checkout@v2
-            # - name: Build Docker image
-            #   run: docker build -t my-app .
+            - name: docker-hub login
+              uses: docker/login-action@v1
+              with:
+                  username: ${{ secrets.DOCKERHUB_USER }}
+                  password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+        
