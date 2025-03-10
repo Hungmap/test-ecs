@@ -29,8 +29,8 @@ jobs:
                   context: ./
                   build: ${{steps.buildx.outputs.name}}
                   push: true
-                  buildx-cache-from: type=local,src=/tmp/.buildx-cache
-                  buildx-cache-to: type=local,dest=/tmp/.buildx-cache
+                  cache-from: type=local,src=/tmp/.buildx-cache
+                  cache-to: type=local,dest=/tmp/.buildx-cache
                   tags: ${{ secrets.DOCKERHUB_USER }}/test-ecs:${{ github.sha }}     
 
             
