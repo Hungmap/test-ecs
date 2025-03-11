@@ -121,13 +121,13 @@ resource "aws_security_group" "public" {
   {
     cidr_blocks      = ["0.0.0.0/0"]
       description      = "allow RDP"
-      from_port        = 3389
+      from_port        = 80
       ipv6_cidr_blocks = []
       prefix_list_ids  = []
       protocol         = "tcp"
       security_groups  = []
       self             = false
-      to_port          = 3389
+      to_port          = 80
 
   }]
   egress = [{
